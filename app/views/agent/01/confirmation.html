@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Payment link created",
+      html: "Share the payment link in the webchat"
+    }) }}
+
+    {{ govukInsetText({
+      text: "https://webchat-payment-link-12345/67890/abcdefg/"
+    }) }}
+
+    {{ govukButton({
+      text: "Copy the payment link"
+    }) }}
+
+   <p>If the payment link is not used within X hours, it will expire.</p>
+
+   <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Tax type
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['tax-type'] }}
+      </dd>
+    </div>
+
+    {% if (data['tax-type'] == "Self Assessment") %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Unique Taxpayer Reference (UTR)
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['sa-ref'] }}
+      </dd>
+    </div>
+
+    {% elseif (data['tax-type'] == "VAT") %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        VAT registration number
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['vat-reg-number'] }}
+      </dd>
+    </div>
+
+    {% elseif (data['tax-type'] == "Simple Assessment") %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Payment reference
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['simp-ref'] }}
+      </dd>
+    </div>
+
+    {% elseif (data['tax-type'] == "A tax reference beginning with 'x'") %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Payment reference
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['x-ref'] }}
+      </dd>
+    </div>
+
+    {% endif %}
+
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Payment amount
+      </dt>
+      <dd class="govuk-summary-list__value">
+        £{{ data['cost'] }}
+      </dd>
+    </div>
+
+    </dl>
+
+
+ <p> <a href="tracking">Check payment progress</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

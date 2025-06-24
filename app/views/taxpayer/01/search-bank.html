@@ -1,0 +1,152 @@
+{% extends "./layouts/question-page.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="email" method="post">
+
+      <h1 class="govuk-heading-l">
+           What is the name of your bank?
+          </h1>
+
+      <div class="govuk-form-group">
+
+        <div class="govuk-input--width-20">
+          <label class="govuk-label govuk-visually-hidden" for="subject">
+            Select bank
+           </label>
+           <p class="govuk-hint">Start typing the name of your bank.</p>
+
+
+         <select class="govuk-select" id="selectBank-select" name="selectBank" aria-describedby="country-hint" data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="" style="display: none;">
+             <option value="" selected="" disabled="">Select your bank</option>
+             <option value="Start typing your bank's name/Choose your bank"></option>
+             <option value="Allied Irish Bank">AIB</option>
+             <option value="Allied Irish Bank Business">AIB NI</option>
+             <option value="Allied Irish Bank NI">Allied Irish Bank NI</option>
+             <option value="Allied Irish Bank NI Business">Alpha FX</option>
+             <option value="Allied Irish Bank NI Business">Arbuthnot Latham &amp; Co., Limited</option>
+        
+             <option value="Bank of Ireland">Bank Of Ireland 365 Online</option>
+             <option value="Bank of Ireland">Bank Of Ireland Business On Line</option>
+             <option value="Bank Of Scotland Business">Bank Of Scotland Business</option>
+             <option value="Bank Of Scotland Commercial">Bank Of Scotland Commercial</option>
+             <option value="Bank Of Scotland Personal">Bank Of Scotland Personal</option>
+        
+             <option value="Barclays">Barclays</option>
+             <option value="Barclays Business">Barclays Business</option>
+             <option value="Barclays Business Mobile">Barclays Business Mobile</option>
+             <option value="Barclaycard Mobile">Barclaycard Corporate</option>
+             <option value="Barclays Mobile">Barclays Mobile</option>
+             <option value="Barclays Mobile">Barclays Wealth</option>
+             <option value="Barclays Mobile">Barclays Wealth Mobile</option>
+        
+             <option value="Cashplus">C. Hoare &amp; Co.</option>
+             <option value="Cashplus">Cashplus</option>
+             <option value="Cashplus">Cater Allen</option>
+             <option value="Cashplus">Chase</option>
+             <option value="Cashplus">Chelsea Building Society</option>
+             <option value="Coutts">Coutts</option>
+             <option value="Cumberland">Cumberland</option>
+             <option value="Cashplus">Cynergy Bank</option>
+        
+             <option value="Danske Bank">Danske</option>
+             <option value="Danske Bank Business">Danske Business</option>
+        
+             <option value="First Direct">First Direct</option>
+             <option value="HSBC">HSBC</option>
+             <option value="HSBC Business">HSBC Business</option>
+             <option value="HSBC Kenetic">HSBC Kenetic</option>
+             <option value="Halifax">Halifax</option>
+             <option value="Halifax">Investec</option>
+             <option value="Halifax">Kleinwort Hambros</option>
+        
+             <option value="Lloyds Business">Lloyds Business</option>
+             <option value="Lloyds Commercial">Lloyds Commercial</option>
+             <option value="Lloyds Personal">Lloyds Personal</option>
+        
+             <option value="M&amp;S">Mettle</option>
+             <option value="Monzo">Monzo</option>
+             <option value="M&amp;S">M&amp;S</option>
+        
+             <option value="Natwest Bankline">Natwest Bankline</option>
+             <option value="Natwest International EQ">Natwest International EQ</option>
+             <option value="Natwest International Online and Mobile Banking">Natwest International Online and Mobile Banking</option>
+             <option value="Natwest One Account">Natwest One Account</option>
+             <option value="Natwest Online and Mobile Banking">Natwest Online and Mobile Banking</option>
+             <option value="Nationwide">Nationwide Building Society</option>
+        
+             <option value="RBS Bankline">RBS Bankline</option>
+             <option value="RBS International">RBS International</option>
+             <option value="RBS International EQ">RBS International EQ</option>
+             <option value="RBS Online and Mobile Banking">RBS Online and Mobile Banking</option>
+             <option value="Revolut">Revolut</option>
+        
+             <option value="Santander">Santander</option>
+             <option value="Santander">Starling</option>
+             <option value="TSB Bank">TSB Bank</option>
+             <option value="Santander">Tesco</option>
+             <option value="Santander">The One Account</option>
+             <option value="Santander">Tide</option>
+        
+             <option value="TSB Bank">Yorkshire Building Society</option>
+        </select>
+        </div>
+
+      </div>
+
+
+
+                     <div class="govuk-button-group">
+                       <button class="govuk-button" data-module="govuk-button" data-button="button-continue">
+                         Continue
+                       </button>
+                       <a href="../bank-transfer/details.html" class="govuk-button govuk-button--secondary govuk-!-margin-left-2" data-module="govuk-button">
+                         My bank is not listed
+                       </a>
+                     </div>
+
+
+    </form>
+
+
+
+
+
+
+      <script>
+function myFunction() {
+  var x = document.getElementById("get_help_with_this_page_form");
+  if (x.style.display === "none") {
+      x.style.display = "block";
+  } else {
+      x.style.display = "none";
+  }
+  }
+
+function showThankYou(){
+  var x = document.getElementById("thankyou");
+  if (x.style.display === "none") {
+      x.style.display = "block";
+  } else {
+  x.style.display = "none";
+  }
+  myFunction();
+  }
+</script>
+
+<a href="get_help2" style="text-decoration: underline; color: #005ea5; cursor: pointer; font-size: 16px" onclick="myFunction()">Is this page not working properly? (opens in new tab)</a>
+
+
+     
+  </div>
+</div>
+
+{% endblock %}

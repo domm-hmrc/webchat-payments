@@ -1,0 +1,55 @@
+{% extends "./layouts/question-page.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/how-to-pay" method="post" novalidate>
+
+{{ govukRadios({
+  name: "choose-a-way-to-pay",
+  fieldset: {
+    legend: {
+      text: "Choose a way to pay",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "Pay by bank account",
+      text: "Pay by bank account",
+      hint: {
+        text: "Approve a payment to come straight from your bank account"
+      }
+    },
+    {
+      value: "Personal debit, corporate credit or debit card",
+      text: "Personal debit, corporate credit or debit card",
+      hint: {
+        text: "Make a payment by card"
+      }
+    }
+  ]
+}) }}
+
+
+  
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+  </div>
+</div>
+
+{% endblock %}

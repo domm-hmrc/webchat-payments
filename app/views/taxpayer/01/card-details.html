@@ -1,0 +1,157 @@
+{% extends "./layouts/question-page.html" %}
+
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Make your payment  </h1>
+    <h1 class="govuk-heading-m">Payment details  </h1>
+  
+    <dl class="govuk-summary-list govuk-summary-list--long">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tax reference
+        </dt>
+        <dd class="govuk-summary-list__answer">
+          <span class="govuk-body-m">1234567890</span></dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Amount
+        </dt>
+        <dd class="govuk-summary-list__answer">
+          <span class="govuk-body-m">£300</span></dd>
+        <dd class="govuk-summary-list__actions">
+  
+        </dd>
+      </div>
+    </dl>
+  
+
+    <h1 class="govuk-heading-m">Billing address </h1>
+    <p>20 Rashleigh Way<br>
+      Horton Kirby<br>
+      DARTFORD<br>
+      DA4 9DJ</p>
+  
+      
+      <h1 class="govuk-heading-m">Card details </h1>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="event-name">
+          Name on card
+        </label>
+        <span id="passport-issued-hint" class="govuk-hint">
+          Enter your name as it appears on your card
+        </span>
+        <input class="govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text">
+      </div>
+  
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="event-name">
+          Card number
+        </label>
+        <span id="passport-issued-hint" class="govuk-hint">
+          The long card number on your card
+        </span>
+        <input class="govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text">
+      </div>
+  
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="event-name">
+          Card type
+        </label>
+      </div>
+  
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="event-name">
+          Expiry date
+        </label>
+        <select class="govuk-select govuk-input--width-4" id="sort" name="sort">
+          <option value="01">1</option>
+          <option value="02">2</option>
+          <option value="03">3</option>
+          <option value="04">4</option>
+          <option value="05">5</option>
+          <option value="06">6</option>
+          <option value="07">7</option>
+          <option value="08">8</option>
+          <option value="09">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <select class="govuk-select govuk-input--width-4" id="sort" name="sort">
+          <option value="2023">23</option>
+          <option value="2024">24</option>
+          <option value="2025">25</option>
+          <option value="2026">26</option>
+          <option value="2027">27</option>
+          <option value="2028">28</option>
+          <option value="2029">29</option>
+          <option value="2030">30</option>
+        </select>
+      </div>
+  
+  
+  
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="event-name">
+          Card security code
+        </label>
+        <span id="passport-issued-hint" class="govuk-hint">
+          The card security code is a 3 digit value
+        </span>
+        <input class="govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text">
+      </div>
+  
+      <h1 class="govuk-heading-s">Payment summary </h1>
+  
+      <p>Amount
+        <br>
+        £300
+      </p>
+      <a href="bank-confirmation" class="govuk-button" data-module="govuk-button">
+        Pay now
+      </a>
+  
+      <p><a class="" href="#">Cancel payment</a></p>
+  
+  
+  
+    <script>
+  function myFunction() {
+      var x = document.getElementById("get_help_with_this_page_form");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+      }
+  
+  function showThankYou(){
+      var x = document.getElementById("thankyou");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+      x.style.display = "none";
+      }
+      myFunction();
+      }
+  </script>
+  
+  <a href="get_help2" style="text-decoration: underline; color: #005ea5; cursor: pointer; font-size: 16px" onclick="myFunction()">Is this page not working properly? (opens in new tab)</a>
+  
+  </div>
+  
+  </div>
+
+{% endblock %}

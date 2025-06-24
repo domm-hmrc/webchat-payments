@@ -1,0 +1,48 @@
+{% extends "./layouts/question-page.html" %}
+{% set back = "true" %}
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-l">Enter the Simple Assessment details</h1>
+  <form action="check-answers" method="post" novalidate>
+
+  {{ govukInput({
+    label: {
+      text: "Payment reference"
+    },
+    hint: {
+      text: "This starts with an X and is 14 or 15 characters, like XAZ12345678901 or XA1234567890123."
+    },
+    classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+    id: "simp-ref",
+    name: "simp-ref",
+    spellcheck: false
+  }) }}
+
+  {{ govukInput({
+    id: "cost",
+    name: "cost",
+    label: {
+      text: "Payment amount"
+    },
+    prefix: {
+      text: "£"
+    },
+    classes: "govuk-input--width-5",
+    spellcheck: false
+  }) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+  </div>
+</div>
+
+{% endblock %}

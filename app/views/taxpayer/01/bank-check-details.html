@@ -1,0 +1,143 @@
+{% extends "./layouts/question-page.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Check your details</h1>
+    
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Tax"
+          },
+          value: {
+            text: "Self Assessment"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Unique Taxpayer Reference (UTR)"
+          },
+          value: {
+            text: "K123456789"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Payment amount"
+          },
+          value: {
+            html: "£1,029"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "address"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Bank name"
+          },
+          value: {
+            html: "Santander"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "address"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Email address"
+          },
+          value: {
+            html: "joe@bloggs.com"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "address"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+        
+        
+        
+
+<p>The payment reference on your bank statement will be <strong>1234567890K</strong>. This payment will show in your bank as 1234567890K and will be sent to the HMRC Shipley bank account.</p>
+
+<p>If you usually pay a different HMRC bank account, no action is needed. Your payment will reach us.</p>
+
+</fieldset>
+
+ <p><a href="card-details.html" class="govuk-button govuk-button" role="button">Continue</a></p> 
+
+      <script>
+function myFunction() {
+    var x = document.getElementById("get_help_with_this_page_form");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+    }
+
+function showThankYou(){
+    var x = document.getElementById("thankyou");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+    x.style.display = "none";
+    }
+    myFunction();
+    }
+</script>
+
+<a href="get_help2" style="text-decoration: underline; color: #005ea5; cursor: pointer; font-size: 16px" onclick="myFunction()">Is this page not working properly? (opens in new tab)</a>
+
+    </div>
+
+  </div>
+
+{% endblock %}

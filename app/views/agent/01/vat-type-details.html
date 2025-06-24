@@ -1,0 +1,50 @@
+{% extends "./layouts/question-page.html" %}
+{% set back = "true" %}
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/vat-type-select" method="post" novalidate>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          Select what to pay
+        </h1>
+      </legend>
+  
+      <div class="govuk-radios" data-module="govuk-radios">
+  
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="vat-bill" name="vat-payment" type="radio" value="VAT bill">
+          <label class="govuk-label govuk-radios__label" for="vat-bill">
+            VAT bill
+          </label>
+        </div>
+  
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="vat-penalty" name="vat-payment" type="radio" value="VAT surcharge or penalty">
+          <label class="govuk-label govuk-radios__label" for="vat-penalty">
+            VAT surcharge or penalty
+          </label>
+        </div>
+  
+      </div>
+    </fieldset>
+  </div>
+  
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+  </div>
+</div>
+
+{% endblock %}

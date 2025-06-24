@@ -1,0 +1,170 @@
+{% extends "./layouts/question-page.html" %}
+{% set back = "true" %}
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-l">Check your details</h1>
+
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Tax type
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['tax-type'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+      </dd>
+    </div>
+
+    {% if (data['tax-type'] == "VAT") %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        What to pay
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['vat-payment'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+      </dd>
+    </div>
+
+    {% endif %}
+
+
+    {% if (data['tax-type'] == "Self Assessment") %}
+    
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Unique Taxpayer Reference (UTR)
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['sa-ref'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+      </dd>
+    </div>
+
+    {% elseif (data['tax-type'] == "Simple Assessment") %}
+    
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Reference number
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['simp-ref'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+      </dd>
+    </div>
+
+    {% elseif (data['tax-type'] == "VAT") %}
+    
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        VAT registration number
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['vat-reg-number'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+      </dd>
+    </div>
+
+    {% elseif (data['tax-type'] == "A tax reference beginning with 'x'") %}
+    
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Reference number
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['simp-ref'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+      </dd>
+    </div>
+
+    {% elseif (data['tax-type'] == "A tax reference beginning with 'x'") %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Reference number
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['x-ref'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+      </dd>
+    </div>
+
+    {% elseif (data['vat-payment'] == "VAT bill") %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Reference number
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['vat-reg-number'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+      </dd>
+    </div>
+
+    {% elseif (data['vat-payment'] == "VAT surcharge or penalty") %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Reference number
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['vat-pen-ref'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+      </dd>
+    </div>
+
+    {% endif %}
+
+
+
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Payment amount
+      </dt>
+      <dd class="govuk-summary-list__value">
+        £{{ data['cost'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <ul class="govuk-summary-list__actions-list">
+          <li class="govuk-summary-list__actions-list-item">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </li>
+        </ul>
+      </dd>
+    </div>
+  </dl>
+
+{{ govukButton({
+  text: "Create payment link",
+  href: "confirmation"
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}

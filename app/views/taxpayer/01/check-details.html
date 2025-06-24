@@ -1,0 +1,91 @@
+{% extends "./layouts/question-page.html" %}
+
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="card-details" method="post" novalidate>
+
+
+<h1 class="govuk-heading-l">Check your details</h1>
+
+{{ govukSummaryList({
+  rows: [
+  {
+    key: {
+      text: "Tax type"
+    },
+    value: {
+      text: "Self Assessment"
+    }
+  },{
+      key: {
+        text: "Amount"
+      },
+      value: {
+        text: "£300"
+      }
+    },
+    {
+      key: {
+        text: "Card billing address"
+      },
+      value: {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Email address"
+      },
+      value: {
+        text: data['email'] or "No email address entered"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+<p>The payment reference on your bank statement will be <strong>1234567890K</strong>.</p>
+
+</fieldset>
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+ </form>
+
+<a href="get_help2" style="text-decoration: underline; color: #005ea5; cursor: pointer; font-size: 16px" onclick="myFunction()">Is this page not working properly? (opens in new tab)</a>
+
+    </div>
+
+  </div>
+
+{% endblock %}

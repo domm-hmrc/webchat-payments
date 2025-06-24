@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Payment complete",
+      html: "Your payment reference:
+      1234567890K"
+    }) }}
+
+
+   {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Tax"
+        },
+        value: {
+          text: "Self Assessment"
+        }
+      },
+      {
+        key: {
+          text: "Unique Taxpayer Reference (UTR)"
+        },
+        value: {
+          text: "K123456789"
+        }
+      },
+      {
+        key: {
+          text: "Payment amount"
+        },
+        value: {
+          html: "£1,029"
+        }
+      }
+    ]
+  }) }}
+
+  </div>
+</div>
+
+{% endblock %}

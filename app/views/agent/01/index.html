@@ -1,0 +1,29 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-l">Webchat Payment Service</h1>
+
+<p>You can create a secure payment link for a tax payer to pay an upfront amount towards their tax bill.</p>
+
+<h2 class="govuk-heading-m">Creating a webchat payment link</h2>
+
+<p>To create the payment link, you must provide:the tax the debit is forrelevant details such as tax reference and amount.</p>
+
+<p>Payment links are active for X hours. Once the link expires, it will not be accessible to the tax payer.</p>
+
+{{ govukButton({
+  text: "Start now",
+  href: "tax-type",
+  isStartButton: true
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "./layouts/question-page.html" %}
+
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+  <h1 class="govuk-heading-l">Card fees</h1>
+  <p>There is a non-refundable fee if you pay by corporate credit card or corporate debit card.</p>
+
+  <p>There is no fee if you pay by:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li><a href="search-bank">bank account</a></li>
+    <li><a href="pay-by-direct-debit">Direct Debit (one-off payment)</a></li>
+    <li>personal debit card</li>
+  </ul>
+  <p>You cannot pay using a personal credit card.</p>
+  <p>Allow 3 working days for your payment to reach HMRC’s bank account.</p>
+    <a href="card-billing-address" class="govuk-button govuk-button" role="button">Continue</a>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "The payment has not been made"
+    }) }}
+
+   <p>By refreshing this page every few minutes, you can track the tax payer's payment.</p>
+    
+ <p> <a href="tracking-success">Refresh this page</a></p>
+
+ <p>If the payment is successful, you'll see a payment reference number.</p>
+ 
+  </div>
+</div>
+
+{% endblock %}
