@@ -32,6 +32,19 @@
       </dd>
     </div>
 
+    {% if (data['tax-type'] == "VAT") %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        What to pay
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['vat-payment'] }}
+      </dd>
+    </div>
+
+    {% endif %}
+
     {% if (data['tax-type'] == "Self Assessment") %}
 
     <div class="govuk-summary-list__row">
