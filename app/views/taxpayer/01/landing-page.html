@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}  
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-l">v1.0 Taxpayer view</h1>
+
+
+{% set pastDayHtml %}
+<h2 class="govuk-heading-l">Overview</h2>
+
+{{ govukButton({
+  text: "Start prototype",
+  href: "index",
+  isStartButton: true
+}) }}
+
+{% endset -%}
+
+{% set pastWeekHtml %}
+<h2 class="govuk-heading-l">Page index</h2>
+
+<p><a href="index">Landing page</a> </p>
+<p><a href="choose-way-to-pay">Choose a way to pay</a> </p>
+
+<h3 class="govuk-heading-m">Pay by bank</h3>
+<p><a href="search-bank">What is the name of your bank</a> </p>
+<p><a href="email-address">Email address</a> </p>
+<p><a href="check-details">Check answers</a> </p>
+<p><a href="bank-confirmation">Confirmation</a> </p>
+
+<h3 class="govuk-heading-m">Pay by card</h3>
+<p><a href="card-fees">Card fees</a> </p>
+<p><a href="card-billing-address">Card billing address</a> </p>
+<p><a href="email-address">Email address</a> </p>
+<p><a href="email-address">Card details</a> </p>
+<p><a href="bank-confirmation">Confirmation</a> </p>
+
+{% endset -%}
+
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Overview",
+      id: "past-day",
+      panel: {
+        html: pastDayHtml
+      }
+    },
+    {
+      label: "Page index",
+      id: "past-week",
+      panel: {
+        html: pastWeekHtml
+      }
+    }
+  ]
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}

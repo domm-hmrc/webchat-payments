@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}  
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-l">v1.0 Agent view</h1>
+
+
+{% set pastDayHtml %}
+<h2 class="govuk-heading-l">Overview</h2>
+
+<p>The version of the prototype includes the following taxes:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>Self assessment</li>
+  <li>Simple assessment</li>
+  <li>VAT</li>
+  <li>Corporation tax</li>
+  <li>X reference</li>
+</ul>
+
+<br>
+
+{{ govukButton({
+  text: "Start prototype",
+  href: "index",
+  isStartButton: true
+}) }}
+
+{% endset -%}
+
+{% set pastWeekHtml %}
+<h2 class="govuk-heading-l">Page index</h2>
+
+<p><a href="index">Landing page</a> </p>
+<p><a href="tax-type">Select a tax type</a> </p>
+<p><a href="sa-details">Self assessment details page</a> </p>
+<p><a href="corp-tax-details">Corporation tax details page</a> </p>
+<p><a href="simp-details">Simple assessment details page</a> </p>
+<p><a href="vat-details">VAT details page</a> </p>
+<p><a href="x-ref-details">X reference details page</a> </p>
+<p><a href="check-answers">Check answers</a> </p>
+<p><a href="confirmation">Confirmation</a> </p>
+<p><a href="tracking">Tracking</a> </p>
+<p><a href="tracking-success">Tracking - success</a> </p>
+
+{% endset -%}
+
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Overview",
+      id: "past-day",
+      panel: {
+        html: pastDayHtml
+      }
+    },
+    {
+      label: "Page index",
+      id: "past-week",
+      panel: {
+        html: pastWeekHtml
+      }
+    }
+  ]
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}

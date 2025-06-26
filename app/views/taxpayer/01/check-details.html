@@ -17,6 +17,8 @@
 
 <h1 class="govuk-heading-l">Check your details</h1>
 
+{% if (data['choose-a-way-to-pay'] == "Personal debit, corporate credit or debit card") %}
+
 {{ govukSummaryList({
   rows: [
   {
@@ -71,14 +73,79 @@
   ]
 }) }}
 
+<p>The payment reference on your bank statement will be <strong>1234567890K</strong>.</p>
+
+{{ govukButton({
+  text: "Save and continue",
+  href: "card-details"
+}) }}
+
+{% elseif (data['choose-a-way-to-pay'] == "Pay by bank account") %}
+
+{{ govukSummaryList({
+  rows: [
+  {
+    key: {
+      text: "Tax type"
+    },
+    value: {
+      text: "Self Assessment"
+    }
+  },{
+      key: {
+        text: "Amount"
+      },
+      value: {
+        text: "£300"
+      }
+    },
+    {
+      key: {
+        text: "Bank name"
+      },
+      value: {
+        text: data['selectBank']
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Email address"
+      },
+      value: {
+        text: data['email'] or "No email address entered"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
 
 <p>The payment reference on your bank statement will be <strong>1234567890K</strong>.</p>
 
-</fieldset>
-
 {{ govukButton({
-  text: "Save and continue"
+  text: "Save and continue",
+  href: "bank-confirmation"
 }) }}
+
+{% endif %}
+
+
 
  </form>
 
