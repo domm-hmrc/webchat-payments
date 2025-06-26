@@ -7,19 +7,20 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-  <h1 class="govuk-heading-l">Enter the Simple Assessment details</h1>
-  <form action="check-answers" method="post" novalidate>
+    <form action="check-answers" method="post" novalidate>
+
+  <h1 class="govuk-heading-l">Enter the Corporation Tax details</h1>
 
   {{ govukInput({
     label: {
-      text: "Payment reference"
+      text: "Corporation Tax Reference"
     },
     hint: {
-      text: "This starts with an X and is 14 characters, like XAZ12345678901 or XA1234567890123."
+      text: "Enter the 17-character Corporation Tax payslip reference for the accounting period being paid. For example 1234005678A00101A."
     },
     classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
-    id: "simp-ref",
-    name: "simp-ref",
+    id: "corporation-tax-ref",
+    name: "corporation-tax-ref",
     spellcheck: false
   }) }}
 

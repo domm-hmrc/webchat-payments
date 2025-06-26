@@ -20,6 +20,9 @@ router.post('/tax-type-select', function(request, response) {
     else if (tax == "VAT"){
         response.redirect("/agent/01/vat-type-details")
     } 
+    else if (tax == "Corporation Tax"){
+        response.redirect("/agent/01/corp-tax-details")
+    } 
     else {
         response.redirect("/agent/01/x-ref-details")
     }

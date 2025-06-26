@@ -67,25 +67,11 @@
       </dd>
     </div>
 
-    {% elseif (data['tax-type'] == "VAT") %}
+    {% elseif (data['tax-type'] == "Simple Assessment") %}
     
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
-        VAT registration number
-      </dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['vat-reg-number'] }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
-      </dd>
-    </div>
-
-    {% elseif (data['tax-type'] == "A tax reference beginning with 'x'") %}
-    
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Reference number
+        Payment reference
       </dt>
       <dd class="govuk-summary-list__value">
         {{ data['simp-ref'] }}
@@ -109,11 +95,27 @@
       </dd>
     </div>
 
-    {% elseif (data['vat-payment'] == "VAT bill") %}
+    {% elseif (data['tax-type'] == "Corporation tax") %}
+    
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Corporation Tax Reference
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['corporation-tax-ref'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+      </dd>
+    </div>
+
+    {% endif %}
+
+    {% if (data['vat-payment'] == "VAT bill") %}
 
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
-        Reference number
+        VAT registration number
       </dt>
       <dd class="govuk-summary-list__value">
         {{ data['vat-reg-number'] }}
@@ -127,7 +129,7 @@
 
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
-        Reference number
+        VAT surcharge or penalty reference
       </dt>
       <dd class="govuk-summary-list__value">
         {{ data['vat-pen-ref'] }}
@@ -138,9 +140,6 @@
     </div>
 
     {% endif %}
-
-
-
 
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
@@ -157,7 +156,10 @@
         </ul>
       </dd>
     </div>
+
   </dl>
+
+  
 
 {{ govukButton({
   text: "Create payment link",
